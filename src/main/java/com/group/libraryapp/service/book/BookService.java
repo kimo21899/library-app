@@ -5,13 +5,12 @@ import com.group.libraryapp.domain.book.Book;
 import com.group.libraryapp.domain.book.BookRepository;
 import com.group.libraryapp.domain.user.User;
 import com.group.libraryapp.domain.user.UserRepository;
-import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository;
 import com.group.libraryapp.dto.book.BookCreateRequest;
 import com.group.libraryapp.dto.book.BookLoanRequest;
 import com.group.libraryapp.dto.book.BookResponse;
 import com.group.libraryapp.dto.book.BookReturnRequest;
-import com.group.libraryapp.dto.user.UserResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
     private final BookRepository bookRepository;
@@ -26,13 +26,11 @@ public class BookService {
 
     private final UserRepository userRepository;
 
-    public BookService(BookRepository bookRepository,
-                UserLoanHistoryRepository userLoanHistoryRepository,
-                UserRepository userRepository) {
-        this.bookRepository = bookRepository;
-        this.userLoanHistoryRepository = userLoanHistoryRepository;
-        this.userRepository = userRepository;
-    }
+//    public BookService(BookRepository bookRepository, UserLoanHistoryRepository userLoanHistoryRepository, UserRepository userRepository) {
+//        this.bookRepository = bookRepository;
+//        this.userLoanHistoryRepository = userLoanHistoryRepository;
+//        this.userRepository = userRepository;
+//    }
 
     @Transactional
     public void saveBook(BookCreateRequest request){

@@ -1,12 +1,14 @@
 package com.group.libraryapp.domain.user;
 
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -21,8 +23,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserLoanHistory> userLoanHistorys = new ArrayList<>();
 
-    // JPA를 위해 기본생성자 필수
-    protected User() {}
 
     public User(String name, Integer age) {
         if(name==null || name.isBlank()){
